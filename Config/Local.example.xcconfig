@@ -1,0 +1,7 @@
+// Copy this file to Config/Local.xcconfig (git-ignored) and fill in your values.
+
+VPS_BUNDLE_ID_PREFIX = com.yourname.vpsmonitor
+VPS_APP_GROUP_ID = group.com.yourname.vpsmonitor
+DEVELOPMENT_TEAM = ABCDE12345
+VPS_STATUS_ENDPOINT = https:/$()/your-server.example.org/api/status
+VPS_HMAC_SECRET = replace-with-a-long-random-string

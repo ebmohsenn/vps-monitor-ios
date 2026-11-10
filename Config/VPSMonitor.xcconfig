@@ -1,0 +1,24 @@
+// VPSMonitor build configuration.
+//
+// Do not put real secrets here. Copy Local.example.xcconfig to Local.xcconfig
+// (git-ignored) and override any of these values there.
+//
+// Note: "//" starts a comment in .xcconfig files, so URLs are written as
+// https:/$()/host/path  (the empty $() keeps the double slash).
+
+// Bundle identifiers: the widget uses "<prefix>.widget".
+VPS_BUNDLE_ID_PREFIX = com.example.vpsmonitor
+
+// App Group shared by the app and the widget (must exist in your Apple Developer account).
+VPS_APP_GROUP_ID = group.com.example.vpsmonitor
+
+// Your Apple Developer Team ID (leave empty and pick a team in Xcode, or set it in Local.xcconfig).
+DEVELOPMENT_TEAM =
+
+// Default status endpoint (the user can change it in Settings).
+VPS_STATUS_ENDPOINT = https:/$()/vps.example.com/api/status
+
+// Shared secret for HMAC-SHA256 request signing. Leave empty to disable signing.
+VPS_HMAC_SECRET =
+
+#include? "Local.xcconfig"

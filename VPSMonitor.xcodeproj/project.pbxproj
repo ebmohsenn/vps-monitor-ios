@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07A0E0FB773413A8B9CD1CDD /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE01B518FD4171E226C45C /* AppConfig.swift */; };
+		0B09EF575D13CB12247698E4 /* ErrorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754F09879B22384939A30CDB /* ErrorCenter.swift */; };
+		103301B5199813663055E558 /* VPSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407635A421EB73C1C7078551 /* VPSData.swift */; };
+		10D0E034C5BFA9735293AF8E /* VPSMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFA98E6109C5F76DCBC24D6 /* VPSMonitorApp.swift */; };
+		115D8FB96155EEB3F66FF016 /* VPSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407635A421EB73C1C7078551 /* VPSData.swift */; };
+		13B18D4030FCDFBAE3955D98 /* SystemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16019C3CD0786A5FD6CDE742 /* SystemInfoView.swift */; };
+		163642B4E38823FD85B23ACA /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669444F01421C4A96E520344 /* DashboardViewModel.swift */; };
+		181944DD36832D5BFC9ECCA5 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF06E46BF1C7B7B9D339421 /* DataPersistence.swift */; };
+		1826A70234A68B09502994BA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84786D39F7098D81131CEEFD /* DashboardView.swift */; };
+		195DAF3276738B9411F85FB3 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70F950D00E6F7619FAF677 /* Crypto.swift */; };
+		29255437248E20258EC86EFF /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5F136FE405A32D34C240A /* HistoryViewModel.swift */; };
+		33A505AAEEE7CC9B204572AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6D8BBD225B5E7ABDE81D84 /* AppDelegate.swift */; };
+		36A8ACBA9AACC5CF2B3E45C1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 494208ED3B920919997049A8 /* PrivacyInfo.xcprivacy */; };
+		40F3B274353366B63CE1AE94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C375A4336DBA0199038A632D /* Assets.xcassets */; };
+		4C4FB5B38FE11B5B28E0006D /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70F950D00E6F7619FAF677 /* Crypto.swift */; };
+		4F0A0F4E3F0BE2111C2302A1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7CA4B7286C7AE3AA7DCFB3 /* APIService.swift */; };
+		50490041C97617F428BCD070 /* VPSMonitorWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8C021ABC35E238C79ECAAF03 /* VPSMonitorWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		522CEC735D6EF8BE7F537B93 /* ServerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6FF3E11DD42E1CD6EF5 /* ServerStore.swift */; };
+		5534DBC0973866C507287F11 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E52A0BFD69907F45C71512 /* SwiftUI.framework */; };
+		7E45DC539CE290A1FC54ADFD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613DE959527DAD7940C7C740 /* NotificationService.swift */; };
+		8BF41A3B63EF9AA99FDD89C1 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE01B518FD4171E226C45C /* AppConfig.swift */; };
+		9968A3281451FB9C26DC64AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E61A7D2AE96623B715F4D7 /* SceneDelegate.swift */; };
+		9A56941843F6FAB729204F07 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313CE09CBD31A74F3259AB9 /* RootTabView.swift */; };
+		9E04A52132CEB5991F7EE590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E6BC34DF8DD8DE28015B507 /* Assets.xcassets */; };
+		9E86F62E055ADA64DF903025 /* VPSMonitorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7A7DD194CC5B9EED3390B /* VPSMonitorWidget.swift */; };
+		A2C14F100AE0F8A5B8A206B0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7CA4B7286C7AE3AA7DCFB3 /* APIService.swift */; };
+		C144B53F8A1443925F199E01 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578DE97F8092E671F64E86E /* HistoryView.swift */; };
+		CA83A51B1E861AAC4A6A2AA8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D65BBA9534419551BDC4C4 /* SettingsView.swift */; };
+		D158EE6F68C8D8277CE0C7AB /* SystemInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AC2FB3332ED46E2C6F6DE /* SystemInfoViewModel.swift */; };
+		DD4E6A09C834A6C701D766AE /* PreviewAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC29AD83092CD8F1D1B345C /* PreviewAPIService.swift */; };
+		DEA9127E74E6AA5A4B8710DC /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF06E46BF1C7B7B9D339421 /* DataPersistence.swift */; };
+		E3E97A1D6935A092E749B0BB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC1213CC73CE814BD1A8762 /* WidgetKit.framework */; };
+		E488B31CBAC33C84F036A6FA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FAE9D166ACEF06CEFFE5C /* SettingsViewModel.swift */; };
+		E5749F324F4EA815F3ED1285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21ED69172F4E7713AEA9710C /* LaunchScreen.storyboard */; };
+		F77187C6481C535D36F28643 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 840C261D80FA1E77FD223D51 /* PrivacyInfo.xcprivacy */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DBDBE891E56F6C4CDEF0908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F49394751A478E25A115A3BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 553E7D7615B958FF4793DFF0;
+			remoteInfo = VPSMonitorWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E1660AD11A8C83754BC3064 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				50490041C97617F428BCD070 /* VPSMonitorWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01D8B5B76E3C2F336040677F /* VPSMonitor.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = VPSMonitor.xcconfig; sourceTree = "<group>"; };
+		0FE45C975D248087CBE63AB5 /* VPSMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VPSMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16019C3CD0786A5FD6CDE742 /* SystemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoView.swift; sourceTree = "<group>"; };
+		1FFDEC534D7F654601E1608B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BC1213CC73CE814BD1A8762 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		407635A421EB73C1C7078551 /* VPSData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPSData.swift; sourceTree = "<group>"; };
+		428FAE9D166ACEF06CEFFE5C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		494208ED3B920919997049A8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4AB7A7DD194CC5B9EED3390B /* VPSMonitorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPSMonitorWidget.swift; sourceTree = "<group>"; };
+		4AF06E46BF1C7B7B9D339421 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
+		5E6BC34DF8DD8DE28015B507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		613DE959527DAD7940C7C740 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		669444F01421C4A96E520344 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		754F09879B22384939A30CDB /* ErrorCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCenter.swift; sourceTree = "<group>"; };
+		7DFA98E6109C5F76DCBC24D6 /* VPSMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPSMonitorApp.swift; sourceTree = "<group>"; };
+		807AC2FB3332ED46E2C6F6DE /* SystemInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoViewModel.swift; sourceTree = "<group>"; };
+		840C261D80FA1E77FD223D51 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		84786D39F7098D81131CEEFD /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		8C021ABC35E238C79ECAAF03 /* VPSMonitorWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VPSMonitorWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D7CA4B7286C7AE3AA7DCFB3 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9313CE09CBD31A74F3259AB9 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		A94FED264E55271FD3AA726E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC29AD83092CD8F1D1B345C /* PreviewAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAPIService.swift; sourceTree = "<group>"; };
+		B6008FE2DD23E5A65D2D43C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C375A4336DBA0199038A632D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA6D8BBD225B5E7ABDE81D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA77D6FF3E11DD42E1CD6EF5 /* ServerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStore.swift; sourceTree = "<group>"; };
+		CE70F950D00E6F7619FAF677 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		D4E52A0BFD69907F45C71512 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D578DE97F8092E671F64E86E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		D85A094DF492FF9AD0AF4288 /* VPSMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VPSMonitor.entitlements; sourceTree = "<group>"; };
+		E3CE01B518FD4171E226C45C /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		E4E61A7D2AE96623B715F4D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E7D65BBA9534419551BDC4C4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EFC5F136FE405A32D34C240A /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		FF3A797618855C02C66A325F /* VPSMonitorWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VPSMonitorWidget.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36417722FA4F9969D45FC7AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E97A1D6935A092E749B0BB /* WidgetKit.framework in Frameworks */,
+				5534DBC0973866C507287F11 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D7D6EDA557DDA548C362CB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		192E9D558F681CDD057C9BBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BC1213CC73CE814BD1A8762 /* WidgetKit.framework */,
+				D4E52A0BFD69907F45C71512 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D024B9AD461E7CE59AFD11D = {
+			isa = PBXGroup;
+			children = (
+				3757DB0FFC880CCA1E28FE47 /* VPSMonitor */,
+				48BD4138AB9BEA361ECD6795 /* VPSMonitorWidget */,
+				D010DBA5ABA7CDD2D32FD98C /* Config */,
+				192E9D558F681CDD057C9BBC /* Frameworks */,
+				D859A59AA793B50251D3FE09 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3757DB0FFC880CCA1E28FE47 /* VPSMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				CA6D8BBD225B5E7ABDE81D84 /* AppDelegate.swift */,
+				E4E61A7D2AE96623B715F4D7 /* SceneDelegate.swift */,
+				7DFA98E6109C5F76DCBC24D6 /* VPSMonitorApp.swift */,
+				E3CE01B518FD4171E226C45C /* AppConfig.swift */,
+				BE95547CFAD0ADE8896575D8 /* Model */,
+				F24CC453F57D051ED8750662 /* Services */,
+				BCF316A6AA2FB2E757D4D034 /* ViewModels */,
+				5C3482C45A341C0090788830 /* View */,
+				5E6BC34DF8DD8DE28015B507 /* Assets.xcassets */,
+				21ED69172F4E7713AEA9710C /* LaunchScreen.storyboard */,
+				494208ED3B920919997049A8 /* PrivacyInfo.xcprivacy */,
+				A94FED264E55271FD3AA726E /* Info.plist */,
+				D85A094DF492FF9AD0AF4288 /* VPSMonitor.entitlements */,
+			);
+			path = VPSMonitor;
+			sourceTree = "<group>";
+		};
+		48BD4138AB9BEA361ECD6795 /* VPSMonitorWidget */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7A7DD194CC5B9EED3390B /* VPSMonitorWidget.swift */,
+				C375A4336DBA0199038A632D /* Assets.xcassets */,
+				840C261D80FA1E77FD223D51 /* PrivacyInfo.xcprivacy */,
+				1FFDEC534D7F654601E1608B /* Info.plist */,
+				FF3A797618855C02C66A325F /* VPSMonitorWidget.entitlements */,
+			);
+			path = VPSMonitorWidget;
+			sourceTree = "<group>";
+		};
+		5C3482C45A341C0090788830 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9313CE09CBD31A74F3259AB9 /* RootTabView.swift */,
+				84786D39F7098D81131CEEFD /* DashboardView.swift */,
+				D578DE97F8092E671F64E86E /* HistoryView.swift */,
+				16019C3CD0786A5FD6CDE742 /* SystemInfoView.swift */,
+				E7D65BBA9534419551BDC4C4 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCF316A6AA2FB2E757D4D034 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				669444F01421C4A96E520344 /* DashboardViewModel.swift */,
+				754F09879B22384939A30CDB /* ErrorCenter.swift */,
+				EFC5F136FE405A32D34C240A /* HistoryViewModel.swift */,
+				AAC29AD83092CD8F1D1B345C /* PreviewAPIService.swift */,
+				428FAE9D166ACEF06CEFFE5C /* SettingsViewModel.swift */,
+				807AC2FB3332ED46E2C6F6DE /* SystemInfoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BE95547CFAD0ADE8896575D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				407635A421EB73C1C7078551 /* VPSData.swift */,
+				CA77D6FF3E11DD42E1CD6EF5 /* ServerStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D010DBA5ABA7CDD2D32FD98C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				01D8B5B76E3C2F336040677F /* VPSMonitor.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		D859A59AA793B50251D3FE09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0FE45C975D248087CBE63AB5 /* VPSMonitor.app */,
+				8C021ABC35E238C79ECAAF03 /* VPSMonitorWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F24CC453F57D051ED8750662 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8D7CA4B7286C7AE3AA7DCFB3 /* APIService.swift */,
+				CE70F950D00E6F7619FAF677 /* Crypto.swift */,
+				4AF06E46BF1C7B7B9D339421 /* DataPersistence.swift */,
+				613DE959527DAD7940C7C740 /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2801C51209CD37EF43B75516 /* VPSMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEEF061E5E17255AC04D35AD /* Build configuration list for PBXNativeTarget "VPSMonitor" */;
+			buildPhases = (
+				AED05BA61AE84BDEE90E16D4 /* Sources */,
+				6D7D6EDA557DDA548C362CB9 /* Frameworks */,
+				519F3FEC7FB46C5D6223094E /* Resources */,
+				3E1660AD11A8C83754BC3064 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EE9A8EC7B8EF20569611EF7 /* PBXTargetDependency */,
+			);
+			name = VPSMonitor;
+			productName = VPSMonitor;
+			productReference = 0FE45C975D248087CBE63AB5 /* VPSMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		553E7D7615B958FF4793DFF0 /* VPSMonitorWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DE849F2582539EA12F3CD9D /* Build configuration list for PBXNativeTarget "VPSMonitorWidgetExtension" */;
+			buildPhases = (
+				AB086D6657D84794BE47FF21 /* Sources */,
+				36417722FA4F9969D45FC7AC /* Frameworks */,
+				29B7A5C398B81E6A0402DE32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VPSMonitorWidgetExtension;
+			productName = VPSMonitorWidgetExtension;
+			productReference = 8C021ABC35E238C79ECAAF03 /* VPSMonitorWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F49394751A478E25A115A3BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					2801C51209CD37EF43B75516 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					553E7D7615B958FF4793DFF0 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 22BD784F72F823E4B56EDA27 /* Build configuration list for PBXProject "VPSMonitor" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D024B9AD461E7CE59AFD11D;
+			productRefGroup = D859A59AA793B50251D3FE09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2801C51209CD37EF43B75516 /* VPSMonitor */,
+				553E7D7615B958FF4793DFF0 /* VPSMonitorWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29B7A5C398B81E6A0402DE32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40F3B274353366B63CE1AE94 /* Assets.xcassets in Resources */,
+				F77187C6481C535D36F28643 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		519F3FEC7FB46C5D6223094E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E04A52132CEB5991F7EE590 /* Assets.xcassets in Resources */,
+				E5749F324F4EA815F3ED1285 /* LaunchScreen.storyboard in Resources */,
+				36A8ACBA9AACC5CF2B3E45C1 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB086D6657D84794BE47FF21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E86F62E055ADA64DF903025 /* VPSMonitorWidget.swift in Sources */,
+				07A0E0FB773413A8B9CD1CDD /* AppConfig.swift in Sources */,
+				115D8FB96155EEB3F66FF016 /* VPSData.swift in Sources */,
+				A2C14F100AE0F8A5B8A206B0 /* APIService.swift in Sources */,
+				195DAF3276738B9411F85FB3 /* Crypto.swift in Sources */,
+				181944DD36832D5BFC9ECCA5 /* DataPersistence.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED05BA61AE84BDEE90E16D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A505AAEEE7CC9B204572AA /* AppDelegate.swift in Sources */,
+				9968A3281451FB9C26DC64AA /* SceneDelegate.swift in Sources */,
+				10D0E034C5BFA9735293AF8E /* VPSMonitorApp.swift in Sources */,
+				8BF41A3B63EF9AA99FDD89C1 /* AppConfig.swift in Sources */,
+				103301B5199813663055E558 /* VPSData.swift in Sources */,
+				522CEC735D6EF8BE7F537B93 /* ServerStore.swift in Sources */,
+				4F0A0F4E3F0BE2111C2302A1 /* APIService.swift in Sources */,
+				4C4FB5B38FE11B5B28E0006D /* Crypto.swift in Sources */,
+				DEA9127E74E6AA5A4B8710DC /* DataPersistence.swift in Sources */,
+				7E45DC539CE290A1FC54ADFD /* NotificationService.swift in Sources */,
+				163642B4E38823FD85B23ACA /* DashboardViewModel.swift in Sources */,
+				0B09EF575D13CB12247698E4 /* ErrorCenter.swift in Sources */,
+				29255437248E20258EC86EFF /* HistoryViewModel.swift in Sources */,
+				DD4E6A09C834A6C701D766AE /* PreviewAPIService.swift in Sources */,
+				E488B31CBAC33C84F036A6FA /* SettingsViewModel.swift in Sources */,
+				D158EE6F68C8D8277CE0C7AB /* SystemInfoViewModel.swift in Sources */,
+				9A56941843F6FAB729204F07 /* RootTabView.swift in Sources */,
+				1826A70234A68B09502994BA /* DashboardView.swift in Sources */,
+				C144B53F8A1443925F199E01 /* HistoryView.swift in Sources */,
+				13B18D4030FCDFBAE3955D98 /* SystemInfoView.swift in Sources */,
+				CA83A51B1E861AAC4A6A2AA8 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6EE9A8EC7B8EF20569611EF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 553E7D7615B958FF4793DFF0 /* VPSMonitorWidgetExtension */;
+			targetProxy = 2DBDBE891E56F6C4CDEF0908 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21ED69172F4E7713AEA9710C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6008FE2DD23E5A65D2D43C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3E7D9DF5335E02373FC11DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01D8B5B76E3C2F336040677F /* VPSMonitor.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68834F629795290980D962C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = VPSMonitorWidget/VPSMonitorWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VPSMonitorWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VPS Monitor Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VPS_BUNDLE_ID_PREFIX).widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8F618929DDEF7CB93D322E2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01D8B5B76E3C2F336040677F /* VPSMonitor.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0B06FC23BC77B167362A67E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = VPSMonitorWidget/VPSMonitorWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VPSMonitorWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VPS Monitor Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VPS_BUNDLE_ID_PREFIX).widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8A2036A4DAD92DA80AF7097 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VPSMonitor/VPSMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VPSMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VPS Monitor";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VPS_BUNDLE_ID_PREFIX)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EF503533230572744BD18925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VPSMonitor/VPSMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VPSMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VPS Monitor";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(VPS_BUNDLE_ID_PREFIX)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22BD784F72F823E4B56EDA27 /* Build configuration list for PBXProject "VPSMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F618929DDEF7CB93D322E2A /* Debug */,
+				3E7D9DF5335E02373FC11DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DE849F2582539EA12F3CD9D /* Build configuration list for PBXNativeTarget "VPSMonitorWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0B06FC23BC77B167362A67E /* Debug */,
+				68834F629795290980D962C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEEF061E5E17255AC04D35AD /* Build configuration list for PBXNativeTarget "VPSMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A2036A4DAD92DA80AF7097 /* Debug */,
+				EF503533230572744BD18925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F49394751A478E25A115A3BD /* Project object */;
+}

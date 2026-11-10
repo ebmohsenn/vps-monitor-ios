@@ -1,0 +1,43 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.xcarchive
+
+# Local configuration and secrets (see Config/Local.example.xcconfig)
+Config/Local.xcconfig
+VPSMonitor/pinned_cert.der
+VPSMonitorWidget/pinned_cert.der
+
+# CocoaPods (not used by this project; ignored in case you add pods)
+Pods/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Python (reference server)
+__pycache__/
+*.pyc
+.venv/
+venv/
