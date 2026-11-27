@@ -13,7 +13,10 @@ Environment variables:
   VPS_PORT             listen port              (default 8787)
   VPS_STATUS_PATH      status path              (default /api/status)
   VPS_SERVICES         comma-separated systemd units to report, e.g. "nginx,postgresql"
-  VPS_HMAC_SECRET      shared secret; when set, requests must be signed
+  VPS_HMAC_SECRET      shared secret; when set, requests must be signed.
+                       Without it anyone who can reach the endpoint can read it.
+  VPS_ALLOW_UNSIGNED   set to 1 to allow running without a secret on a
+                       non-loopback VPS_BIND (refused otherwise)
   VPS_PUBLIC_BASE_URL  public origin the app uses, e.g. https://vps.example.com
                        (needed for signature checks behind a reverse proxy)
   VPS_SAMPLE_SECONDS   history sampling interval (default 300)
@@ -42,6 +45,8 @@ PUBLIC_BASE_URL = os.environ.get("VPS_PUBLIC_BASE_URL", "").rstrip("/")
 SAMPLE_SECONDS = int(os.environ.get("VPS_SAMPLE_SECONDS", "300"))
 HISTORY = deque(maxlen=int(os.environ.get("VPS_HISTORY_SIZE", "288")))
 MAX_CLOCK_SKEW = 300  # seconds
+SNAPSHOT_TTL = 2.0  # seconds a snapshot is reused, so requests cannot fan out into subprocesses
+LOOPBACK = ("127.0.0.1", "::1", "localhost")
 
 
 def iso_now():
@@ -82,8 +87,11 @@ def memory_usage():
 
 
 def disk_usage(path="/"):
-    usage = shutil.disk_usage(path)
-    return round(100.0 * usage.used / usage.total, 1)
+    try:
+        usage = shutil.disk_usage(path)
+        return round(100.0 * usage.used / usage.total, 1)
+    except (OSError, ZeroDivisionError):
+        return 0.0
 
 
 def uptime_text():
@@ -112,8 +120,9 @@ def load_average():
 def service_info(name):
     """Report a systemd unit. cpu = CPU seconds consumed, memory = MB in use."""
     try:
-        state = subprocess.run(["systemctl", "is-active", name], capture_output=True, text=True, timeout=5).stdout.strip()
-        props = subprocess.run(["systemctl", "show", name, "-p", "MemoryCurrent", "-p", "CPUUsageNSec"],
+        # "--" so a unit name starting with "-" is never read as an option.
+        state = subprocess.run(["systemctl", "is-active", "--", name], capture_output=True, text=True, timeout=5).stdout.strip()
+        props = subprocess.run(["systemctl", "show", "-p", "MemoryCurrent", "-p", "CPUUsageNSec", "--", name],
                                capture_output=True, text=True, timeout=5).stdout
     except (OSError, subprocess.TimeoutExpired):
         return {"name": name, "status": "unknown", "cpu": 0.0, "memory": 0.0}
@@ -131,6 +140,20 @@ def service_info(name):
         "cpu": number("CPUUsageNSec", 1e9),
         "memory": number("MemoryCurrent", 1024 * 1024),
     }
+
+
+_snapshot_lock = threading.Lock()
+_snapshot_cache = {"at": 0.0, "value": None}
+
+
+def cached_snapshot():
+    """One snapshot per SNAPSHOT_TTL, however many requests arrive."""
+    with _snapshot_lock:
+        now = time.monotonic()
+        if _snapshot_cache["value"] is None or now - _snapshot_cache["at"] > SNAPSHOT_TTL:
+            _snapshot_cache["value"] = snapshot()
+            _snapshot_cache["at"] = time.monotonic()
+        return _snapshot_cache["value"]
 
 
 def snapshot():
@@ -152,17 +175,24 @@ def snapshot():
 
 def sampler():
     while True:
-        HISTORY.appendleft({
-            "timestamp": iso_now(),
-            "cpuUsage": cpu_usage(),
-            "memoryUsage": memory_usage(),
-            "diskUsage": disk_usage(),
-        })
+        try:
+            HISTORY.appendleft({
+                "timestamp": iso_now(),
+                "cpuUsage": cpu_usage(),
+                "memoryUsage": memory_usage(),
+                "diskUsage": disk_usage(),
+            })
+        except Exception as exc:  # keep sampling: one bad read must not end history for good
+            print(f"sampler: {exc!r}", flush=True)
         time.sleep(SAMPLE_SECONDS)
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "VPSMonitorReference/1.0"
+    server_version = "VPSMonitorReference"
+
+    def version_string(self):
+        return self.server_version  # don't advertise the Python version
+    timeout = 10  # seconds; an idle connection must not hold a thread forever
 
     def _send(self, code, payload):
         body = json.dumps(payload).encode()
@@ -187,23 +217,30 @@ class Handler(BaseHTTPRequestHandler):
         base = PUBLIC_BASE_URL or f"http://{self.headers.get('Host', '')}"
         payload = f"GET{base}{self.path}{timestamp}".encode()
         expected = base64.b64encode(hmac.new(SECRET.encode(), payload, hashlib.sha256).digest()).decode()
-        return hmac.compare_digest(expected, signature)
+        # Compare bytes: compare_digest raises on non-ASCII str, and headers are latin-1.
+        return hmac.compare_digest(expected.encode(), signature.encode("latin-1", "replace"))
 
     def do_GET(self):
         path = self.path.split("?", 1)[0].rstrip("/")
         if path not in (STATUS_PATH, STATUS_PATH + "/history"):
             return self._send(404, {"error": "not found"})
         if not self._authorized():
-            return self._send(401, {"error": "invalid or missing signature"})
+            return self._send(401, {"error": "invalid or missing signature, or clock more than 5 minutes off"})
         if path == STATUS_PATH:
-            return self._send(200, snapshot())
+            return self._send(200, cached_snapshot())
         return self._send(200, list(HISTORY))
 
 
 def main():
+    if not SECRET:
+        if BIND not in LOOPBACK and os.environ.get("VPS_ALLOW_UNSIGNED") != "1":
+            raise SystemExit("VPS_HMAC_SECRET is required when VPS_BIND is not a loopback address "
+                             "(set VPS_ALLOW_UNSIGNED=1 to run without it anyway).")
+        print("WARNING: VPS_HMAC_SECRET is not set, so requests are not authenticated. If a reverse proxy "
+              "publishes this endpoint, anyone can read your server's metrics and service names.", flush=True)
     threading.Thread(target=sampler, daemon=True).start()
     print(f"VPS Monitor reference server on http://{BIND}:{PORT}{STATUS_PATH}"
-          f" (signing {'required' if SECRET else 'disabled'})")
+          f" (signing {'required' if SECRET else 'disabled'})", flush=True)
     ThreadingHTTPServer((BIND, PORT), Handler).serve_forever()
 
 

@@ -119,7 +119,7 @@ standard library. It reads metrics from `/proc` and `os.getloadavg()`, and reads
 ```bash
 # on the server (Linux, Python 3.8+)
 export VPS_SERVICES="nginx,postgresql"          # systemd units to report
-export VPS_HMAC_SECRET="a-long-random-string"   # optional; must match the app
+export VPS_HMAC_SECRET="a-long-random-string"   # must match the app; see the warning below
 export VPS_PUBLIC_BASE_URL="https://vps.example.com"
 python3 server/vps_status_server.py             # listens on 127.0.0.1:8787
 ```
@@ -132,6 +132,14 @@ location /api/status {
     proxy_set_header Host $host;
 }
 ```
+
+> **Set `VPS_HMAC_SECRET`.** Without it the server answers anyone, and the nginx block above publishes your CPU,
+> memory, disk, uptime and the names and states of your systemd units to the internet. The server refuses to start
+> unsigned on a non-loopback `VPS_BIND` unless you set `VPS_ALLOW_UNSIGNED=1`, but it cannot see a reverse proxy in
+> front of a loopback bind. Run it as an unprivileged user; it needs no special permissions.
+>
+> A signed request stays valid for 5 minutes and there is no nonce, so someone who captures one (from proxy logs,
+> for example) can replay it in that window to read the same data. Serve it over TLS only.
 
 History is kept in memory: one sample every 5 minutes, 24 hours retained by default. It starts empty each time
 the server restarts. See the docstring at the top of the script for every option. You can also write your own
