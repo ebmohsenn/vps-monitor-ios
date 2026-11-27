@@ -6,6 +6,8 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-27
+
 ### Added
 - GitHub Actions workflow that builds the app and widget for the iOS Simulator and checks the
   reference server's syntax on every push and pull request.
@@ -49,5 +51,6 @@ First open-source release, extracted from a private app (developed September 202
 - Release builds failed because preview helpers were only compiled in Debug.
 - Service rows used a new random identity on every render.
 
-[Unreleased]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/releases/tag/v1.0.0
