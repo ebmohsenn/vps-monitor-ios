@@ -5,7 +5,7 @@ struct HistoryView: View {
 
     var body: some View {
         NavigationView {
-            Group {
+            VStack(spacing: 0) {
                 if let message = viewModel.errorMessage {
                     Text(message)
                         .font(.footnote)
@@ -18,7 +18,7 @@ struct HistoryView: View {
                 } else {
                     List(viewModel.samples) { sample in
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(sample.timestamp, style: .date)
+                            Text("\(sample.timestamp, style: .date) \(sample.timestamp, style: .time)")
                                 .font(.headline)
                             Text("CPU: \(sample.cpuUsage, specifier: "%.1f")% • Memory: \(sample.memoryUsage, specifier: "%.1f")% • Disk: \(sample.diskUsage, specifier: "%.1f")%")
                                 .font(.footnote)
@@ -49,6 +49,7 @@ struct HistoryView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 
     private var emptyState: some View {

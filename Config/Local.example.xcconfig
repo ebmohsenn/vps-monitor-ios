@@ -1,7 +1,18 @@
 // Copy this file to Config/Local.xcconfig (git-ignored) and fill in your values.
+// Every setting is optional: anything you leave out keeps the default from VPSMonitor.xcconfig.
 
+// Your own reverse-DNS bundle ID. The widget gets "<prefix>.widget".
 VPS_BUNDLE_ID_PREFIX = com.yourname.vpsmonitor
 VPS_APP_GROUP_ID = group.com.yourname.vpsmonitor
-DEVELOPMENT_TEAM = ABCDE12345
+
+// Your 10-character Apple Developer Team ID (Xcode > Settings > Accounts), or leave it
+// empty and pick a team in the target's Signing & Capabilities tab.
+DEVELOPMENT_TEAM =
+
+// "//" starts a comment in .xcconfig files, so write URLs as https:/$()/host/path.
 VPS_STATUS_ENDPOINT = https:/$()/your-server.example.org/api/status
-VPS_HMAC_SECRET = replace-with-a-long-random-string
+
+// Optional shared secret for request signing; it must match VPS_HMAC_SECRET on the server.
+// Use a hex value (e.g. from `openssl rand -hex 32`): base64 output can contain "//",
+// which would start a comment here. Leave it empty to disable signing.
+VPS_HMAC_SECRET =

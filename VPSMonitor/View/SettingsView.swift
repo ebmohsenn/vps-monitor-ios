@@ -74,6 +74,7 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
         }
+        .navigationViewStyle(.stack)
         .onAppear {
             endpointInput = viewModel.serverEndpoint
         }

@@ -4,7 +4,7 @@
 Standard library only. Run it on the Linux server you want to monitor, ideally
 behind a TLS-terminating reverse proxy (nginx, Caddy, ...).
 
-Endpoints (paths are configurable, see README):
+Endpoints (the base path is configurable with VPS_STATUS_PATH):
   GET /api/status          -> current snapshot (VPSStatusResponse)
   GET /api/status/history  -> list of samples (VPSHistoricalSample[])
 

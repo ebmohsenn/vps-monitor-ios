@@ -7,6 +7,20 @@ protocol APIServiceProtocol {
     func fetchHistory() -> AnyPublisher<[VPSHistoricalSample], Error>
 }
 
+/// Errors produced by `APIService` itself (transport errors are passed through as `URLError`).
+enum APIError: LocalizedError, Equatable {
+    case httpStatus(Int)
+
+    var errorDescription: String? {
+        switch self {
+        case .httpStatus(401):
+            return "The server rejected the request (HTTP 401). Check that the HMAC secret matches the server."
+        case .httpStatus(let code):
+            return "The server responded with HTTP \(code) (\(HTTPURLResponse.localizedString(forStatusCode: code)))."
+        }
+    }
+}
+
 final class APIService: NSObject, APIServiceProtocol, URLSessionDelegate {
     static let shared = APIService()
 
@@ -17,6 +31,9 @@ final class APIService: NSObject, APIServiceProtocol, URLSessionDelegate {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.waitsForConnectivity = true
         configuration.timeoutIntervalForRequest = 20
+        // Bound the total time, including waiting for connectivity. The default is 7 days,
+        // which would leave the widget's timeline request hanging instead of using the cache.
+        configuration.timeoutIntervalForResource = 30
         configuration.httpAdditionalHeaders = ["Accept": "application/json"]
         return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
@@ -90,7 +107,7 @@ final class APIService: NSObject, APIServiceProtocol, URLSessionDelegate {
                     throw URLError(.badServerResponse)
                 }
                 guard 200..<300 ~= httpResponse.statusCode else {
-                    throw URLError(.init(rawValue: httpResponse.statusCode))
+                    throw APIError.httpStatus(httpResponse.statusCode)
                 }
                 return data
             }

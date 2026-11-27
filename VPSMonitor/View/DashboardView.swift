@@ -5,7 +5,7 @@ struct DashboardView: View {
 
     var body: some View {
         NavigationView {
-            Group {
+            VStack(spacing: 0) {
                 if let message = viewModel.errorMessage {
                     Text(message)
                         .font(.footnote)
@@ -63,6 +63,7 @@ struct DashboardView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 
     private func summaryRow(title: String, value: Double, unit: String) -> some View {

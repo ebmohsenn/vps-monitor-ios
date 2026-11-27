@@ -46,6 +46,7 @@ struct SystemInfoView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 
     private func statusBadge(for status: String) -> some View {
