@@ -55,8 +55,8 @@ final class SettingsViewModel: ObservableObject {
         guard !trimmed.isEmpty,
               let url = URL(string: trimmed),
               let scheme = url.scheme?.lowercased(),
-              scheme == "https" || scheme == "http" else {
-            endpointValidationError = "Enter a valid http(s) URL."
+              scheme == "https", url.host?.isEmpty == false else {
+            endpointValidationError = "Enter an https:// URL. iOS blocks plain HTTP."
             return
         }
 

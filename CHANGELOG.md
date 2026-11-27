@@ -6,6 +6,22 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Security
+- Reference server: refuses to start without `VPS_HMAC_SECRET` on a non-loopback bind (override with
+  `VPS_ALLOW_UNSIGNED=1`) and prints a warning whenever it runs unsigned. The README now says plainly that an
+  unsigned endpoint behind a reverse proxy is public.
+- Reference server: a signature header with non-ASCII bytes raised an unhandled `TypeError` (dropped connection
+  and a traceback per request). It is now rejected with 401.
+- Reference server: connections time out after 10 seconds, a snapshot is reused for 2 seconds so requests cannot
+  fan out into `systemctl` calls, unit names are passed after `--`, the history sampler survives a failed read,
+  and the `Server` header no longer shows the Python version.
+
+### Changed
+- Settings accepts only `https://` endpoints. iOS blocks plain HTTP, so an `http://` endpoint could never work.
+- The HTTP 401 message also points at the device clock: a clock more than 5 minutes off fails the signature check.
+- The privacy manifests declare reason `CA92.1` for the app's own `UserDefaults` in addition to the App Group one.
+- CI: the checkout action is pinned to a commit and no longer keeps credentials.
+
 ## [1.0.1] - 2026-11-27
 
 ### Added

@@ -14,7 +14,7 @@ enum APIError: LocalizedError, Equatable {
     var errorDescription: String? {
         switch self {
         case .httpStatus(401):
-            return "The server rejected the request (HTTP 401). Check that the HMAC secret matches the server."
+            return "The server rejected the request (HTTP 401). Check that the HMAC secret matches the server and that this device's clock is correct."
         case .httpStatus(let code):
             return "The server responded with HTTP \(code) (\(HTTPURLResponse.localizedString(forStatusCode: code)))."
         }
