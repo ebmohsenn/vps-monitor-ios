@@ -6,6 +6,7 @@ CPU, memory and disk usage, load average, uptime, the state of selected services
 The app reads a simple JSON API that you host yourself. A reference backend in Python
 (standard library only) is included in [`server/`](server/).
 
+[![CI](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/actions/workflows/ci.yml/badge.svg)](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/actions/workflows/ci.yml)
 ![iOS](https://img.shields.io/badge/iOS-15.0%2B-blue.svg)
 ![Widget](https://img.shields.io/badge/widget-iOS%2017%2B-blue.svg)
 ![Swift](https://img.shields.io/badge/Swift-5-orange.svg)
@@ -148,15 +149,26 @@ backend in any language, as long as it returns the JSON above.
 The project has **no CocoaPods or Swift Package dependencies**. Open the project and build it.
 
 ```bash
-git clone https://github.com/<your-account>/vps-monitor-ios.git
+git clone https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios.git
 cd vps-monitor-ios
 cp Config/Local.example.xcconfig Config/Local.xcconfig   # then edit it
 open VPSMonitor.xcodeproj
 ```
 
 1. In `Config/Local.xcconfig`, set your bundle ID prefix, App Group, Team ID, default endpoint and, optionally, the HMAC secret.
+   The checked-in bundle ID `com.example.vpsmonitor` is only a placeholder. It is fine for the simulator, but to run on
+   a device set `VPS_BUNDLE_ID_PREFIX` (and `VPS_APP_GROUP_ID`) to IDs under your own reverse domain, e.g.
+   `com.yourname.vpsmonitor`.
 2. In Xcode, select the **VPSMonitor** scheme and a simulator or device, then press Run.
 3. To test the widget, run the **VPSMonitorWidgetExtension** scheme, or add the widget from the home screen.
+
+To build from the command line without a signing identity (this is what CI does):
+
+```bash
+xcodebuild -project VPSMonitor.xcodeproj -scheme VPSMonitor \
+  -destination 'generic/platform=iOS Simulator' \
+  CODE_SIGNING_ALLOWED=NO build
+```
 
 > Earlier private versions used CocoaPods, but none of the pods were imported by the code, so the Podfile was
 > removed. If you add pods, run `pod install` and open the generated `.xcworkspace` instead.
@@ -172,7 +184,7 @@ overridden in the git-ignored `Config/Local.xcconfig`.
 | `VPS_APP_GROUP_ID` | App Group shared by the app and widget (cache and endpoint setting) | `group.com.example.vpsmonitor` |
 | `DEVELOPMENT_TEAM` | Your Apple Team ID | empty |
 | `VPS_STATUS_ENDPOINT` | Default status endpoint | `https://vps.example.com/api/status` |
-| `VPS_HMAC_SECRET` | Shared secret for request signing. Empty means requests are not signed | empty |
+| `VPS_HMAC_SECRET` | Shared secret for request signing. Empty means requests are not signed. Use a hex value (`openssl rand -hex 32`); base64 can contain `//`, which starts an xcconfig comment | empty |
 
 In `.xcconfig` files `//` starts a comment, so write URLs as `https:/$()/host/path`.
 
@@ -209,7 +221,9 @@ server/                     reference backend (Python)
 
 ## Contributing
 
-Issues and pull requests are welcome. Please keep the app free of third-party dependencies unless there is a strong reason to add one.
+Issues and [pull requests](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/pulls) are welcome. [GitHub Actions](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/actions/workflows/ci.yml) builds the app
+for the iOS Simulator on every push and pull request. Please keep the app free of third-party dependencies unless
+there is a strong reason to add one.
 
 ## License
 

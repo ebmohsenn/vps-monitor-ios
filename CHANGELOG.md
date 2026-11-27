@@ -4,6 +4,25 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- GitHub Actions workflow that builds the app and widget for the iOS Simulator and checks the
+  reference server's syntax on every push and pull request.
+
+### Fixed
+- Dashboard and History wrapped the error banner and the content in a `Group` inside
+  `NavigationView`, which turns them into separate navigation columns; after a failed request the
+  data could end up hidden behind the error text, and `onAppear` ran once per child. They now use a
+  `VStack`, and all tabs use stack navigation (no empty split view on wide screens).
+- HTTP errors were reported as meaningless `URLError` codes; they now say which HTTP status the
+  server returned (with a hint about the HMAC secret for 401).
+- Requests could wait up to 7 days for connectivity, so the widget never fell back to its cache
+  while offline. The total request time is now capped at 30 seconds.
+- History rows showed only the date; they now show the date and time of each sample.
+- `Config/Local.example.xcconfig` no longer contains a fake Team ID or a dummy HMAC secret that
+  would be used as-is if the file was copied without editing.
+
 ## [1.0.0] - 2026-11-10
 
 First open-source release, extracted from a private app (developed September 2025).
@@ -29,3 +48,6 @@ First open-source release, extracted from a private app (developed September 202
 - Cached data could not be read back (date decoding strategy mismatch).
 - Release builds failed because preview helpers were only compiled in Debug.
 - Service rows used a new random identity on every render.
+
+[Unreleased]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/releases/tag/v1.0.0
