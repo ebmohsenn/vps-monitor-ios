@@ -4,7 +4,7 @@
 
 Please report security problems privately, not in a public issue: open the
 repository's **Security** tab and choose **Report a vulnerability**
-(<https://github.com/ebmohsenn/vps-monitor-ios/security/advisories/new>).
+(<https://github.com/Ebmohsennn/vps-monitor-ios/security/advisories/new>).
 
 Include what you found, the steps that reproduce it, and the impact you expect.
 You will get an acknowledgement within a few days.
