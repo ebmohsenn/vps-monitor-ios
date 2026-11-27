@@ -51,6 +51,6 @@ First open-source release, extracted from a private app (developed September 202
 - Release builds failed because preview helpers were only compiled in Debug.
 - Service rows used a new random identity on every render.
 
-[Unreleased]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/releases/tag/v1.0.0
+[Unreleased]: https://github.com/ebmohsenn/vps-monitor-ios/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/ebmohsenn/vps-monitor-ios/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/ebmohsenn/vps-monitor-ios/releases/tag/v1.0.0

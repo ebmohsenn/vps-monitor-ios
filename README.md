@@ -6,7 +6,7 @@ CPU, memory and disk usage, load average, uptime, the state of selected services
 The app reads a simple JSON API that you host yourself. A reference backend in Python
 (standard library only) is included in [`server/`](server/).
 
-[![CI](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/actions/workflows/ci.yml/badge.svg)](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/actions/workflows/ci.yml)
+[![CI](https://github.com/ebmohsenn/vps-monitor-ios/actions/workflows/ci.yml/badge.svg)](https://github.com/ebmohsenn/vps-monitor-ios/actions/workflows/ci.yml)
 ![iOS](https://img.shields.io/badge/iOS-15.0%2B-blue.svg)
 ![Widget](https://img.shields.io/badge/widget-iOS%2017%2B-blue.svg)
 ![Swift](https://img.shields.io/badge/Swift-5-orange.svg)
@@ -149,7 +149,7 @@ backend in any language, as long as it returns the JSON above.
 The project has **no CocoaPods or Swift Package dependencies**. Open the project and build it.
 
 ```bash
-git clone https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios.git
+git clone https://github.com/ebmohsenn/vps-monitor-ios.git
 cd vps-monitor-ios
 cp Config/Local.example.xcconfig Config/Local.xcconfig   # then edit it
 open VPSMonitor.xcodeproj
@@ -221,7 +221,7 @@ server/                     reference backend (Python)
 
 ## Contributing
 
-Issues and [pull requests](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/pulls) are welcome. [GitHub Actions](https://github.com/mohsenebrahimizadeh-ai/vps-monitor-ios/actions/workflows/ci.yml) builds the app
+Issues and [pull requests](https://github.com/ebmohsenn/vps-monitor-ios/pulls) are welcome. [GitHub Actions](https://github.com/ebmohsenn/vps-monitor-ios/actions/workflows/ci.yml) builds the app
 for the iOS Simulator on every push and pull request. Please keep the app free of third-party dependencies unless
 there is a strong reason to add one.
 
